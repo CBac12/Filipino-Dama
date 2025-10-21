@@ -491,59 +491,54 @@
     </div>
 
     <!-- QR Code Library -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const playBtn = document.getElementById('playBtn');
-            const guideBtn = document.getElementById('guideBtn');
-            const quitBtn = document.getElementById('quitBtn');
+    <!-- QR Code Library -->
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
 
-            playBtn.addEventListener('click', () => {
-                window.location.href = 'game.html';
-            });
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const playBtn = document.getElementById('playBtn');
+        const guideBtn = document.getElementById('guideBtn');
+        const quitBtn = document.getElementById('quitBtn');
 
-            guideBtn.addEventListener('click', () => {
-                window.location.href = 'instructions.html';
-            });
-
-            quitBtn.addEventListener('click', () => {
-                if (confirm("Are you sure you want to quit Filipino Dama?")) {
-                    window.close();
-                    if (!window.closed) {
-                        alert("Thank you for playing Filipino Dama! You can close this tab now.");
-                    }
-                }
-            });
-
-            const buttons = document.querySelectorAll('.home-button');
-            buttons.forEach(button => {
-                button.addEventListener('mouseenter', () => {
-                    button.style.transform = 'translateY(-5px) scale(1.05)';
-                });
-                button.addEventListener('mouseleave', () => {
-                    button.style.transform = 'translateY(0) scale(1)';
-                });
-            });
-
-            // Generate QR Code
-            function generateQRCode() {
-                // Get the current page URL
-                const currentUrl = window.location.href;
-                
-                // Create QR code
-                const qrCode = new QRCode(document.getElementById('qrCode'), {
-                    text: currentUrl,
-                    width: 150,
-                    height: 150,
-                    colorDark: "#000000",
-                    colorLight: "#ffffff",
-                    correctLevel: QRCode.CorrectLevel.H
-                });
-            }
-            
-            generateQRCode();
+        playBtn.addEventListener('click', () => {
+            window.location.href = 'game.html';
         });
+
+        guideBtn.addEventListener('click', () => {
+            window.location.href = 'instructions.html';
+        });
+
+        quitBtn.addEventListener('click', () => {
+            if (confirm("Are you sure you want to quit Filipino Dama?")) {
+                window.close();
+                if (!window.closed) {
+                    alert("Thank you for playing Filipino Dama! You can close this tab now.");
+                }
+            }
+        });
+
+        const buttons = document.querySelectorAll('.home-button');
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.transform = 'translateY(-5px) scale(1.05)';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Generate QR Code (static URL)
+        new QRCode(document.getElementById('qrCode'), {
+            text: "https://cbac12.github.io/Filipino-Dama",
+            width: 150,
+            height: 150,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    });
+</script>
+
     </script>
 </body>
 </html>
